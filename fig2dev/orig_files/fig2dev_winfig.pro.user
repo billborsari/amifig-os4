@@ -1,0 +1,377 @@
+<!DOCTYPE QtCreatorProject>
+<qtcreator>
+ <data>
+  <variable>RunConfiguration0-BaseEnvironmentBase</variable>
+  <value type="int">2</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-CommandLineArguments</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">-L</value>
+   <value type="QString">ps</value>
+   <value type="QString">~/exchange/FIG_files/3DHOUSE.FIG</value>
+   <value type="QString">~/exchange/FIG_files/3DHOUSE.ps</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>RunConfiguration0-ProFile</variable>
+  <value type="QString">fig2dev_winfig.pro</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-RunConfiguration.name</variable>
+  <value type="QString">fig2dev_winfig</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-UseDyldImageSuffix</variable>
+  <value type="bool">false</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-UseTerminal</variable>
+  <value type="bool">false</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-UserEnvironmentChanges</variable>
+  <valuelist type="QVariantList"/>
+ </data>
+ <data>
+  <variable>RunConfiguration0-UserSetName</variable>
+  <value type="bool">false</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-UserSetWorkingDirectory</variable>
+  <value type="bool">false</value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-UserWorkingDirectory</variable>
+  <value type="QString"></value>
+ </data>
+ <data>
+  <variable>RunConfiguration0-type</variable>
+  <value type="QString">Qt4ProjectManager.Qt4RunConfiguration</value>
+ </data>
+ <data>
+  <variable>activeRunConfiguration</variable>
+  <value type="int">0</value>
+ </data>
+ <data>
+  <variable>activebuildconfiguration</variable>
+  <value type="QString">Release</value>
+ </data>
+ <data>
+  <variable>buildConfiguration-Debug</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
+   <value key="QtVersionId" type="int">0</value>
+   <value key="ToolChain" type="int">2</value>
+   <value key="addQDumper" type=""></value>
+   <value key="buildConfiguration" type="int">2</value>
+   <value key="buildDirectory" type="QString">/home/andreas/exchange/fig2devQC</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildConfiguration-Release</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
+   <value key="QtVersionId" type="int">0</value>
+   <value key="ToolChain" type="int">2</value>
+   <value key="addQDumper" type=""></value>
+   <value key="buildConfiguration" type="int">0</value>
+   <value key="buildDirectory" type="QString">D:\WinFIG\transfig325_QT\fig2dev</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Debug-buildstep0</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-L7VGMzC7uJ,guid=87d73892b0aaeecaeec523784adf7ae7</value>
+    <value type="QString">DESKTOP_SESSION=xfce.desktop</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=xfce.desktop</value>
+    <value type="QString">GDM_XSERVER_LOCATION=local</value>
+    <value type="QString">GLADE_CATALOG_PATH=:/usr/share/glade3/catalogs</value>
+    <value type="QString">GLADE_MODULE_PATH=:/usr/lib/glade3/modules</value>
+    <value type="QString">GLADE_PIXMAP_PATH=:/usr/share/glade3/pixmaps</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">GTK_PATH=:/usr/lib/gtk-2.0</value>
+    <value type="QString">HOME=/home/andreas</value>
+    <value type="QString">LANG=en_US.UTF-8</value>
+    <value type="QString">LD_LIBRARY_PATH=/home/andreas/qtcreator-1.2.92/lib/qtcreator:</value>
+    <value type="QString">LIBGLADE_MODULE_PATH=:/usr/lib/libglade/2.0</value>
+    <value type="QString">LOGNAME=andreas</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-andreas</value>
+    <value type="QString">PATH=/home/andreas/qtsdk-2009.04/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/andreas</value>
+    <value type="QString">QTDIR=/home/andreas/qtsdk-2009.04/qt</value>
+    <value type="QString">SESSION_MANAGER=local/xubuntu:/tmp/.ICE-unix/2751</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SSH_AGENT_PID=2725</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-yqQVit2479/agent.2479</value>
+    <value type="QString">USER=andreas</value>
+    <value type="QString">USERNAME=andreas</value>
+    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">XAUTHORITY=/home/andreas/.Xauthority</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xubuntu:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/etc/xdg/xubuntu:/usr/local/share/:/usr/share/:/usr/share/gdm/:/usr/share</value>
+    <value type="QString">XDG_SESSION_COOKIE=568f046559aef0c0d88d3a4f4ad68526-1256159964.651614-213457762</value>
+   </valuelist>
+   <valuelist key="abstractProcess.arguments" type="QVariantList">
+    <value type="QString">/home/andreas/exchange/fig2devQC/fig2dev_winfig.pro</value>
+    <value type="QString">-spec</value>
+    <value type="QString">linux-g++</value>
+    <value type="QString">-r</value>
+    <value type="QString">CONFIG+=debug</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString">/home/andreas/qtsdk-2009.04/qt/bin/qmake</value>
+   <value key="abstractProcess.enabled" type="bool">false</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/andreas/exchange/fig2devQC</value>
+   <valuelist key="qmakeArgs" type="QVariantList"/>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Debug-buildstep1</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-L7VGMzC7uJ,guid=87d73892b0aaeecaeec523784adf7ae7</value>
+    <value type="QString">DESKTOP_SESSION=xfce.desktop</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=xfce.desktop</value>
+    <value type="QString">GDM_XSERVER_LOCATION=local</value>
+    <value type="QString">GLADE_CATALOG_PATH=:/usr/share/glade3/catalogs</value>
+    <value type="QString">GLADE_MODULE_PATH=:/usr/lib/glade3/modules</value>
+    <value type="QString">GLADE_PIXMAP_PATH=:/usr/share/glade3/pixmaps</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">GTK_PATH=:/usr/lib/gtk-2.0</value>
+    <value type="QString">HOME=/home/andreas</value>
+    <value type="QString">LANG=en_US.UTF-8</value>
+    <value type="QString">LD_LIBRARY_PATH=/home/andreas/qtcreator-1.2.92/lib/qtcreator:</value>
+    <value type="QString">LIBGLADE_MODULE_PATH=:/usr/lib/libglade/2.0</value>
+    <value type="QString">LOGNAME=andreas</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-andreas</value>
+    <value type="QString">PATH=/home/andreas/qtsdk-2009.04/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/andreas</value>
+    <value type="QString">QTDIR=/home/andreas/qtsdk-2009.04/qt</value>
+    <value type="QString">SESSION_MANAGER=local/xubuntu:/tmp/.ICE-unix/2751</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SSH_AGENT_PID=2725</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-yqQVit2479/agent.2479</value>
+    <value type="QString">USER=andreas</value>
+    <value type="QString">USERNAME=andreas</value>
+    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">XAUTHORITY=/home/andreas/.Xauthority</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xubuntu:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/etc/xdg/xubuntu:/usr/local/share/:/usr/share/:/usr/share/gdm/:/usr/share</value>
+    <value type="QString">XDG_SESSION_COOKIE=568f046559aef0c0d88d3a4f4ad68526-1256159964.651614-213457762</value>
+   </valuelist>
+   <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
+   <valuelist key="abstractProcess.arguments" type="QVariantList">
+    <value type="QString">-w</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
+   <value key="abstractProcess.enabled" type="bool">true</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/andreas/exchange/fig2devQC</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Debug-cleanstep0</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
+   <value key="cleanConfig" type="bool">true</value>
+   <valuelist key="makeargs" type="QVariantList">
+    <value type="QString">clean</value>
+   </valuelist>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Release-buildstep0</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-DjL6BfMPDl,guid=e88fa5b399478e699bbf34024b0ef6bf</value>
+    <value type="QString">DESKTOP_SESSION=xfce.desktop</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=xfce.desktop</value>
+    <value type="QString">GDM_XSERVER_LOCATION=local</value>
+    <value type="QString">GLADE_CATALOG_PATH=:/usr/share/glade3/catalogs</value>
+    <value type="QString">GLADE_MODULE_PATH=:/usr/lib/glade3/modules</value>
+    <value type="QString">GLADE_PIXMAP_PATH=:/usr/share/glade3/pixmaps</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">GTK_PATH=:/usr/lib/gtk-2.0</value>
+    <value type="QString">HOME=/home/andreas</value>
+    <value type="QString">LANG=en_US.UTF-8</value>
+    <value type="QString">LD_LIBRARY_PATH=/home/andreas/qtcreator-1.2.93/lib/qtcreator:</value>
+    <value type="QString">LIBGLADE_MODULE_PATH=:/usr/lib/libglade/2.0</value>
+    <value type="QString">LOGNAME=andreas</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-andreas</value>
+    <value type="QString">PATH=/home/andreas/qtsdk-2009.04/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/andreas</value>
+    <value type="QString">QTDIR=/home/andreas/qtsdk-2009.04/qt</value>
+    <value type="QString">SESSION_MANAGER=local/xubuntu:/tmp/.ICE-unix/2770</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SSH_AGENT_PID=2751</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-BIvgRY2468/agent.2468</value>
+    <value type="QString">USER=andreas</value>
+    <value type="QString">USERNAME=andreas</value>
+    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">XAUTHORITY=/home/andreas/.Xauthority</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xubuntu:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/etc/xdg/xubuntu:/usr/local/share/:/usr/share/:/usr/share/gdm/:/usr/share</value>
+    <value type="QString">XDG_SESSION_COOKIE=568f046559aef0c0d88d3a4f4ad68526-1259271859.198258-335137168</value>
+   </valuelist>
+   <valuelist key="abstractProcess.arguments" type="QVariantList">
+    <value type="QString">/home/andreas/exchange/fig2devQC/fig2dev_winfig.pro</value>
+    <value type="QString">-spec</value>
+    <value type="QString">linux-g++</value>
+    <value type="QString">-r</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString">/home/andreas/qtsdk-2009.04/qt/bin/qmake</value>
+   <value key="abstractProcess.enabled" type="bool">false</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/andreas/exchange/fig2devQC</value>
+   <valuelist key="qmakeArgs" type="QVariantList"/>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Release-buildstep1</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-DjL6BfMPDl,guid=e88fa5b399478e699bbf34024b0ef6bf</value>
+    <value type="QString">DESKTOP_SESSION=xfce.desktop</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=xfce.desktop</value>
+    <value type="QString">GDM_XSERVER_LOCATION=local</value>
+    <value type="QString">GLADE_CATALOG_PATH=:/usr/share/glade3/catalogs</value>
+    <value type="QString">GLADE_MODULE_PATH=:/usr/lib/glade3/modules</value>
+    <value type="QString">GLADE_PIXMAP_PATH=:/usr/share/glade3/pixmaps</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">GTK_PATH=:/usr/lib/gtk-2.0</value>
+    <value type="QString">HOME=/home/andreas</value>
+    <value type="QString">LANG=en_US.UTF-8</value>
+    <value type="QString">LD_LIBRARY_PATH=/home/andreas/qtcreator-1.2.93/lib/qtcreator:</value>
+    <value type="QString">LIBGLADE_MODULE_PATH=:/usr/lib/libglade/2.0</value>
+    <value type="QString">LOGNAME=andreas</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-andreas</value>
+    <value type="QString">PATH=/home/andreas/qtsdk-2009.04/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/andreas</value>
+    <value type="QString">QTDIR=/home/andreas/qtsdk-2009.04/qt</value>
+    <value type="QString">SESSION_MANAGER=local/xubuntu:/tmp/.ICE-unix/2770</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SSH_AGENT_PID=2751</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-BIvgRY2468/agent.2468</value>
+    <value type="QString">USER=andreas</value>
+    <value type="QString">USERNAME=andreas</value>
+    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">XAUTHORITY=/home/andreas/.Xauthority</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xubuntu:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/etc/xdg/xubuntu:/usr/local/share/:/usr/share/:/usr/share/gdm/:/usr/share</value>
+    <value type="QString">XDG_SESSION_COOKIE=568f046559aef0c0d88d3a4f4ad68526-1259271859.198258-335137168</value>
+   </valuelist>
+   <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
+   <valuelist key="abstractProcess.arguments" type="QVariantList">
+    <value type="QString">-w</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
+   <value key="abstractProcess.enabled" type="bool">true</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/andreas/exchange/fig2devQC</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-Release-cleanstep0</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Release</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList">
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-DjL6BfMPDl,guid=e88fa5b399478e699bbf34024b0ef6bf</value>
+    <value type="QString">DESKTOP_SESSION=xfce.desktop</value>
+    <value type="QString">DISPLAY=:0.0</value>
+    <value type="QString">GDMSESSION=xfce.desktop</value>
+    <value type="QString">GDM_XSERVER_LOCATION=local</value>
+    <value type="QString">GLADE_CATALOG_PATH=:/usr/share/glade3/catalogs</value>
+    <value type="QString">GLADE_MODULE_PATH=:/usr/lib/glade3/modules</value>
+    <value type="QString">GLADE_PIXMAP_PATH=:/usr/share/glade3/pixmaps</value>
+    <value type="QString">GTK_MODULES=canberra-gtk-module</value>
+    <value type="QString">GTK_PATH=:/usr/lib/gtk-2.0</value>
+    <value type="QString">HOME=/home/andreas</value>
+    <value type="QString">LANG=en_US.UTF-8</value>
+    <value type="QString">LD_LIBRARY_PATH=/home/andreas/qtcreator-1.2.93/lib/qtcreator:</value>
+    <value type="QString">LIBGLADE_MODULE_PATH=:/usr/lib/libglade/2.0</value>
+    <value type="QString">LOGNAME=andreas</value>
+    <value type="QString">ORBIT_SOCKETDIR=/tmp/orbit-andreas</value>
+    <value type="QString">PATH=/home/andreas/qtsdk-2009.04/qt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString">PWD=/home/andreas</value>
+    <value type="QString">QTDIR=/home/andreas/qtsdk-2009.04/qt</value>
+    <value type="QString">SESSION_MANAGER=local/xubuntu:/tmp/.ICE-unix/2770</value>
+    <value type="QString">SHELL=/bin/bash</value>
+    <value type="QString">SSH_AGENT_PID=2751</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-BIvgRY2468/agent.2468</value>
+    <value type="QString">USER=andreas</value>
+    <value type="QString">USERNAME=andreas</value>
+    <value type="QString">WINDOWPATH=7</value>
+    <value type="QString">XAUTHORITY=/home/andreas/.Xauthority</value>
+    <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xubuntu:/etc/xdg</value>
+    <value type="QString">XDG_DATA_DIRS=/etc/xdg/xubuntu:/usr/local/share/:/usr/share/:/usr/share/gdm/:/usr/share</value>
+    <value type="QString">XDG_SESSION_COOKIE=568f046559aef0c0d88d3a4f4ad68526-1259271859.198258-335137168</value>
+   </valuelist>
+   <value key="abstractProcess.IgnoreReturnValue" type="bool">true</value>
+   <valuelist key="abstractProcess.arguments" type="QVariantList">
+    <value type="QString">clean</value>
+    <value type="QString">-w</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString">/usr/bin/make</value>
+   <value key="abstractProcess.enabled" type="bool">true</value>
+   <value key="abstractProcess.workingDirectory" type="QString">/home/andreas/exchange/fig2devQC</value>
+   <value key="cleanConfig" type="bool">true</value>
+   <valuelist key="makeargs" type="QVariantList">
+    <value type="QString">clean</value>
+   </valuelist>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfigurations</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">Debug</value>
+   <value type="QString">Release</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>buildstep0</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString"></value>
+   <value key="mkspec" type="QString"></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildstep1</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString"></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildsteps</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">trolltech.qt4projectmanager.qmake</value>
+   <value type="QString">trolltech.qt4projectmanager.make</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>cleanstep0</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString"></value>
+   <value key="clean" type="bool">true</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>cleansteps</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">trolltech.qt4projectmanager.make</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>defaultFileEncoding</variable>
+  <value type="QByteArray">System</value>
+ </data>
+ <data>
+  <variable>project</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+</qtcreator>

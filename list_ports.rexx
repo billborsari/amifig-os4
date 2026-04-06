@@ -1,0 +1,2 @@
+/* REXX */
+say show('P')

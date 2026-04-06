@@ -1,0 +1,25 @@
+# $Id$
+
+include $(SRCDIR)/config/aros-contrib.cfg
+
+#MM local-zunetools-AmiFig-svg2fig
+
+FILES := \
+	svg2fig \
+	src_colors \
+	fig_colors \
+	path2poly \
+	fig_save
+FILES := $(addprefix src/,$(FILES))
+TARGETDIR := $(AROSDIR)/zunetools/AmiFig/svg2fig
+NOWARN_FLAGS := 
+USER_CFLAGS := $(NOWARN_FLAGS)
+USER_INCLUDES := -I$(AROS_INCLUDES)/libxml2
+
+%build_prog mmake=local-zunetools-AmiFig-svg2fig \
+progname=svg2fig \
+targetdir=$(TARGETDIR) \
+files=$(FILES) \
+uselibs="xml2 z"
+
+%common

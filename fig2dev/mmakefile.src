@@ -1,0 +1,81 @@
+# $Id$
+
+include $(SRCDIR)/config/aros.cfg
+
+#MM local-zunetools-AmiFig-fig2dev : \
+#MM local-zunetools-AmiFig-F2Dbitmaps
+
+CXXFILES := \
+	dev/readpng \
+	src/fig2dev \
+	src/stdafx \
+	src/read_images \
+    src/win32supp	
+
+FILES := \
+	dev/setfigfont \
+	dev/readxbm \
+	dev/readtif \
+	dev/readppm \
+	dev/readpics \
+	dev/readpcx \
+	dev/readjpg \
+	dev/readeps \
+	dev/psencode \
+	dev/gentpic \
+	dev/gentk \
+	dev/gentextyl \
+	dev/gensvg \
+	dev/genshape \
+	dev/genptk \
+	dev/genpstricks \
+	dev/genpstex \
+	dev/genps.oldpatterns \
+	dev/genpictex \
+	dev/genpic \
+	dev/genpdf \
+	dev/genmp \
+	dev/genmf \
+	dev/genmap \
+	dev/genlatex \
+	dev/genibmgl \
+	dev/genge \
+	dev/genepic \
+	dev/genemf \
+	dev/gendxf \
+	dev/gencgm \
+	dev/genbox \
+	dev/genbitmaps \
+	dev/asc85ec \
+	src/trans_spline \
+	src/strstr \
+	src/read \
+	src/read1_3 \
+	src/psfonts \
+	src/localmath \
+	src/latex_line \
+	src/iso2tex \
+	src/getopt \
+	src/free \
+	src/colors \
+	src/bound \
+	src/arrow \
+	src/mergesort
+
+TARGETDIR     := $(AROSDIR)/zunetools/AmiFig/fig2dev
+NOWARN_CFLAGS  := -Wno-write-strings -Wno-discarded-qualifiers -Wno-incompatible-pointer-types
+NOWARN_CXXFLAGS  := -Wno-write-strings
+USER_CFLAGS   := $(NOWARN_CFLAGS) -DAMIGA -DGRADIENTS -DBITMAPDIR=\"progdir:bitmaps\" 
+USER_CXXFLAGS := $(NOWARN_CXXFLAGS) -DAMIGA -DGRADIENTS -DBITMAPDIR=\"progdir:bitmaps\"
+USER_INCLUDES := -I$(SRCDIR)/$(CURDIR)/src -I$(SRCDIR)/$(CURDIR)/dev/ 
+
+%build_prog mmake=local-zunetools-AmiFig-fig2dev \
+progname=fig2dev \
+targetdir=$(TARGETDIR) \
+files=$(FILES) \
+cxxfiles=$(CXXFILES)
+
+%copy_dir_recursive mmake=local-zunetools-AmiFig-F2Dbitmaps src=./bitmaps/ \
+    dst=$(TARGETDIR)/bitmaps
+
+%common

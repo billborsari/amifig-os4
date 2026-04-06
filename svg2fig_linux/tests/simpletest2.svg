@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<svg width="18cm" height="6cm" viewBox="0 0 1200 400"
+     xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny">
+  <desc>Example rect02 - rounded rectangles</desc>
+  <rect x="1" y="1" width="1198" height="398"
+        fill="none" stroke="blue" stroke-width="2"/>
+  <g fill="none" stroke="blue" stroke-width="4" >
+    <line x1="100" y1="300" x2="300" y2="100"/>
+    <line x1="300" y1="300" x2="500" y2="100"
+            stroke-width="10"  />
+  </g>
+  <polygon fill="lime" stroke="blue" 
+            points="850,75  958,137.5 958,262.5
+                    850,325 742,262.6 742,137.5" />
+</svg>

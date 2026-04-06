@@ -1,0 +1,79 @@
+CC = ppc-amigaos-gcc
+CXX = ppc-amigaos-g++
+PREFIX  = 
+
+DATADIR = 
+CFLAGS  = -gstabs -D__USE_INLINE__ -O2 -DAMIFIG -DNEWICONS -Wall -Wno-parentheses -fno-strict-aliasing -Wno-pointer-sign -mcrt=newlib
+CXXFLAGS= $(CFLAGS)
+LDFLAGS = -lauto -mcrt=newlib
+DEFINES = -D__amigaos4__ 
+
+OBJS    =   d_arc.o           d_arcbox.o      \
+            d_box.o           d_regpoly.o     \
+            d_ellipse.o       d_line.o        \
+            d_picobj.o        d_spline.o      \
+            d_text.o          d_subspline.o   \
+            e_addpt.o         e_align.o       \
+            e_convert.o       e_copy.o        \
+            e_arrow.o         e_compound.o    \
+            e_move.o          e_delete.o      \
+            e_deletept.o      e_flip.o        \
+            e_glue.o          e_movept.o      \
+            e_rotate.o        e_scale.o       \
+            e_update.o        e_break.o       \
+            e_placelib.o      e_measure.o     \
+            e_chop.o          e_joinsplit.o   \
+            e_tangent.o       e_editsfactor.o \
+			e_changedepth.o   \
+            f_load.o          f_save.o        \
+            f_picobj.o        f_read.o        \
+            u_draw_spline.o   u_bound.o       \
+            u_create.o        u_drag.o        \
+            u_draw.o          u_elastic.o     \
+            u_fonts.o         u_free.o        \
+            u_geom.o          u_list.o        \
+            u_markers.o       u_redraw.o      \
+            u_scale.o         u_search.o      \
+            u_translate.o     u_undo.o        \
+            u_smartsearch.o   u_quartic.o     \
+            w_rulers.o        w_cursor.o      \
+            w_grid.o          w_drawprim.o    \
+            w_msgpanel.o      w_snap.o        \
+            w_canvas.o        w_intersect.o   \
+            a_antialias.o     a_rexxiface.o   \
+            a_eventloop.o     a_patterns.o    \
+            a_color.o         a_area.o        \
+            a_io.o            a_savebitmap.o  \
+			a_print.o         a_icon.o        \
+            a_coords.o        \
+            resources.o       object.o        \
+            intui.o           mode.o          \
+            GradientFill.o    locale.o        \
+            main.o            \
+            z_fig.o           z_mode.o        \
+            z_edit.o          z_color.o       \
+            z_prefs.o         z_zoom.o        \
+			z_pict.o          z_export.o      \
+            z_about.o         z_print.o       \
+			z_library.o       \
+			mcc_graddisp.o    mcc_fontdisp.o  \
+			mcc_zoomdisp.o    mcc_imagedisp.o \
+            mcc_figdisp.o     mcc_arrowslider.o \
+			mcc_colorswatch.o
+
+TARGET  = AmiFIG_App/AmiFIG
+
+$(TARGET): $(OBJS)
+	mkdir -p $(dir $@)
+	$(CC) -o $@ $^ $(LDFLAGS) 
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(DEFINES) -o $@ -c $<
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $(DEFINES) -o $@ -c $<
+
+main.o z_fig.o z_about.o: version.h
+
+clean:
+	rm -f *.o AmiFIG_App/AmiFIG
