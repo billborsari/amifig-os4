@@ -131,7 +131,7 @@ void Init_UserColors(void)
 	/* init color palette for user defined colors */
     for(i=NUM_STD_COLS; i<NUM_STD_COLS + MAX_USR_COLS; i++)
     {
-        ColorPalette[i].RGB     = 0xFF333333;
+        ColorPalette[i].RGB     = 0xFFAAAAAA;
         ColorPalette[i].Used    = FALSE;
 		ColorPalette[i].Defined = TRUE;
     }
@@ -156,7 +156,7 @@ void Init_Gradients(void)
             GradientTable[0]->y2 = 100;
             GradientTable[0]->radius = 100;
             GradientTable[0]->stops = 2;
-            GradientTable[0]->Stop[0].color = 0xFF000000;
+            GradientTable[0]->Stop[0].color = 0xFF333333;
             GradientTable[0]->Stop[0].stopvalue = 0;
             GradientTable[0]->Stop[1].color = 0xFFFFFFFF;
             GradientTable[0]->Stop[1].stopvalue = 100;

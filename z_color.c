@@ -859,7 +859,6 @@ void DoGradColorAdj(struct Hook *h, APTR Object, ULONG *Arg)
     ULONG argb = 0;
     char argb_str[9];
 
-    printf("DoGradColorAdj: ENTER IgnoreGradColorAdj=%d\n", IgnoreGradColorAdj);
     if (IgnoreGradColorAdj) return;
 
     get(NUM_GRADALPHA, MUIA_Numeric_Value  , &a);

@@ -50,6 +50,7 @@ void ImportSVG(void)
 
 			// build command line
 			sprintf(ext_cmd,"svg2fig/svg2fig %s -o T:tmp.fig -s %5.1f -i %d", SvgFile, (float)appres.SVG_Scale/100.0, appres.SVG_InterSteps);
+			strcat(ext_cmd, " >NIL:");
 			Execute((CONST_STRPTR)ext_cmd, NULL, NULL);
 			if ((fp = fopen("T:tmp.fig", "r")) != NULL)
 			{
@@ -79,6 +80,7 @@ void ImportR2V(void)
 			sprintf(ext_cmd,"%s %s T:tmp.fig",appres.r2v_cmd, appres.r2v_outputopt);
 		if (appres.r2v_otheropt[0]!='\0')
 			sprintf(ext_cmd,"%s %s",ext_cmd,appres.r2v_otheropt);
+		strcat(ext_cmd, " >NIL:");
 		Execute((CONST_STRPTR)ext_cmd, NULL, NULL);
 		if ((fp = fopen("T:tmp.fig", "r")) != NULL)
 		{
@@ -130,6 +132,7 @@ void ExportF2D(void)
 		if (appres.f2d_otheropt[0]!='\0')
 			sprintf(ext_cmd,"%s %s", ext_cmd, appres.f2d_otheropt);
 
+		strcat(ext_cmd, " >NIL:");
 		// Execute command
 		Execute((CONST_STRPTR)ext_cmd, NULL, NULL);
 

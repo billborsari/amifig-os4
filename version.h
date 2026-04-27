@@ -25,7 +25,7 @@
 #ifndef VERSION_H
 #define VERSION_H
 
-#define  AMIFIG_VERSION		"1.5.0"
+#define  AMIFIG_VERSION		"3.5.0"
 #define	 AMIFIG_COMMIT			"353"
 #define  AMIFIG_DATE			"March 2026"
 #define  AMIFIG_VERDATE		"11.03.2026"
