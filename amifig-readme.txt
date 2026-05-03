@@ -55,3 +55,9 @@ AmiFIG is released under the AROS Public License.
 Certain foundational algorithms and XFig engine components retain their original unrestricted, royalty-free copyrights extending back to the 1980s. As per XFig's original license, you have the full, unrestricted right to deal in this software, including the rights to use, copy, modify, merge, publish, and/or distribute copies, provided that the original copyright notices remain intact. 
 
 For the complete historical project files and context, visit the AmiFIG SourceForge page (http://sourceforge.net/projects/amifig/) and the ZuneFIG project page (http://sourceforge.net/projects/zunefig/).
+
+## Development and Source Code
+The official development repository for AmiFIG can be found on GitHub:
+https://github.com/billborsari/amifig-os4
+
+Feel free to report issues or contribute to the project through the GitHub interface.
