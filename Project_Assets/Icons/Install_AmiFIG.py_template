@@ -67,10 +67,12 @@ def post_install():
 
     # 2. Register Ghostscript if found in standard location
     if not os.path.exists("APPDIR:gs"):
-        if os.path.exists("System:Utilities/Ghostscript/gs"):
-            os.system("System:Utilities/Ghostscript/gs -h >NIL:")
+        if os.path.exists("SYS:Utilities/Ghostscript/gs"):
+            os.system("SYS:Utilities/Ghostscript/gs -h >NIL: 2>NIL:")
         else:
-            errors.append("- Ghostscript ('gs') not found in System:Utilities/Ghostscript/gs")
+            # Only append error if it's completely missing from typical locations
+            if not os.path.exists("C:gs"):
+                errors.append("- Ghostscript ('gs') not found in SYS:Utilities/Ghostscript/gs")
 
     if errors:
         msg = "WARNING: The following dependencies may be missing:\\n\\n" + "\\n".join(errors)
@@ -84,4 +86,7 @@ except:
     pass
 
 # --- Run the Installer ---
+# Perform pre-run or direct post-install checks
+post_install()
+
 RunInstaller()
