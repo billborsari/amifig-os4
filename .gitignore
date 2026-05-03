@@ -1,3 +1,7 @@
 .svn/
+gs_test.c
+gs_test
+/Release/
+*.o
 AmiFIG_App/
 ZuneFig_App/

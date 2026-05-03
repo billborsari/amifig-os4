@@ -1,0 +1,87 @@
+# AmiFIG 3.5.0 Modern Installation Script
+# For AmigaOS 4 Installation Utility
+from installer import *
+import os
+
+# --- Configuration ---
+app_name = "AmiFIG"
+version = "3.5.0"
+welcome_text = "Welcome to the %s %s Installer.\n\nThis script will install or upgrade AmiFIG on your system.\n\nIMPORTANT: AmiFIG requires the 'ProAction' tool (available on OS4Depot) to be installed on your system." % (app_name, version)
+finish_text = "%s %s has been installed successfully!" % (app_name, version)
+
+# --- Define Pages ---
+
+# 1. Welcome Page
+welcome_page = NewPage(WELCOME)
+SetString(welcome_page, "message", welcome_text)
+
+# 2. Readme Page
+# Renamed amifig-readme.txt to readme.txt to help the utility find it automatically
+readme_page = NewPage(README)
+
+# 3. Base Components Info Page
+base_info_page = NewPage(GUI)
+StartGUI(base_info_page)
+BeginGroup(GROUP_VERTICAL)
+AddLabel(label="Base Components Download")
+AddLabel(label="If you do not have the base AmiFIG/ZuneFIG components installed,")
+AddLabel(label="please download them from the following URL:")
+AddLabel(label="https://sourceforge.net/projects/amifig/files/ZuneFIG/")
+EndGroup()
+EndGUI()
+
+# 4. Destination Page
+dest_page = NewPage(DESTINATION)
+SetString(dest_page, "message", "Select the folder where you want to install %s." % app_name)
+SetString(dest_page, "destination", "Work:Graphics/AmiFIG")
+
+# 5. Package Selection
+# Note: In most cases, we want to install everything
+app_package = AddPackage(FILEPACKAGE, 
+                         name="AmiFIG Core", 
+                         description="The main AmiFIG executable and Python scripts.",
+                         files=["AmiFIG", "AmiFIG.info", "AmiFIG.cfg", "FIG2DEV.py", "FIG2DEV.py.info", "RAS2VEC.py", "RAS2VEC.py.info"],
+                         optional=False)
+
+support_package = AddPackage(FILEPACKAGE,
+                             name="Support Components",
+                             description="fig2dev, Arexx, Skins, and Catalogs.",
+                             files=["fig2dev", "Arexx", "Skins", "Catalogs", "Docs", "autotrace", "potrace", "svg2fig"],
+                             optional=False)
+
+# 6. Progress Page
+install_page = NewPage(INSTALL)
+
+# 7. Finish Page
+final_page = NewPage(FINISH)
+SetString(final_page, "message", finish_text)
+
+# --- Dependency Check Function ---
+# We run this after the main installation
+def post_install():
+    errors = []
+    
+    # 1. Check for ProAction tool
+    if not os.path.exists("APPDIR:proaction"):
+        errors.append("- ProAction tool is not registered in APPDIR: (Please download from OS4Depot if needed and run once to register)")
+
+    # 2. Register Ghostscript if found in standard location
+    if not os.path.exists("APPDIR:gs"):
+        if os.path.exists("System:Utilities/Ghostscript/gs"):
+            os.system("System:Utilities/Ghostscript/gs -h >NIL:")
+        else:
+            errors.append("- Ghostscript ('gs') not found in System:Utilities/Ghostscript/gs")
+
+    if errors:
+        msg = "WARNING: The following dependencies may be missing:\\n\\n" + "\\n".join(errors)
+        os.system("RequestChoice \"AmiFIG Installation\" \"%s\" \"OK\" >NIL:" % msg)
+
+# Register the post-install action (if supported by the utility version)
+try:
+    AddPostInstallAction(post_install)
+except:
+    # Fallback: Just call it before RunInstaller if AddPostInstallAction isn't available
+    pass
+
+# --- Run the Installer ---
+RunInstaller()

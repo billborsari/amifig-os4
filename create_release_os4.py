@@ -31,20 +31,35 @@ def create_release():
 
     # Root files
     shutil.copy2("AmiFIG_App/AmiFIG", release_dir)
-    if os.path.exists("AmiFIG_App/AmiFIG.info"):
-        shutil.copy2("AmiFIG_App/AmiFIG.info", release_dir)
     shutil.copy2("AmiFIG_App/FIG2DEV.py", release_dir)
-    if os.path.exists("AmiFIG_App/FIG2DEV.py.info"):
-        shutil.copy2("AmiFIG_App/FIG2DEV.py.info", release_dir)
     shutil.copy2("AmiFIG_App/RAS2VEC.py", release_dir)
-    if os.path.exists("AmiFIG_App/RAS2VEC.py.info"):
-        shutil.copy2("AmiFIG_App/RAS2VEC.py.info", release_dir)
-    shutil.copy2("amifig-readme.md", release_dir)
     shutil.copy2("amifig-readme.txt", release_dir)
+    # Modern installer expects 'readme.txt'
+    shutil.copy2("amifig-readme.txt", os.path.join(release_dir, "readme.txt"))
+    shutil.copy2("amifig-readme.md", release_dir)
+    
     if os.path.exists("AmiFIG_App/AmiFIG.cfg"):
         shutil.copy2("AmiFIG_App/AmiFIG.cfg", release_dir)
     if os.path.exists("AmiFIG_App/logo.png"):
         shutil.copy2("AmiFIG_App/logo.png", release_dir)
+
+    # Copy the Modern Installer
+    if os.path.exists("Project_Assets/Icons/Install_AmiFIG.py_template"):
+        shutil.copy2("Project_Assets/Icons/Install_AmiFIG.py_template", os.path.join(release_dir, "Install_AmiFIG.py"))
+    
+    # Icons from Master Library (Priority)
+    icon_mapping = {
+        "Project_Assets/Icons/AmiFIG.info": "AmiFIG.info",
+        "Project_Assets/Icons/FIG2DEV.py.info": "FIG2DEV.py.info",
+        "Project_Assets/Icons/RAS2VEC.py.info": "RAS2VEC.py.info",
+        "Project_Assets/Icons/Install_AmiFIG.py.info_template": "Install_AmiFIG.py.info",
+        "AmiFIG_App/RAS2VEC.py.info": "RAS2VEC.py.info" # Fallback
+    }
+
+    for src, dst in icon_mapping.items():
+        if os.path.exists(src):
+            shutil.copy2(src, os.path.join(release_dir, dst))
+            print(f"Applied icon: {src} -> {dst}")
 
     # Directories
     dirs_to_copy = {

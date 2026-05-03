@@ -26,6 +26,7 @@
  */
 
 #include "fig2dev.h"
+#include <unistd.h>
 
 #ifdef WIN32
 #include <direct.h>
@@ -57,6 +58,9 @@ static	int	 width,height;
 static	int	 jpeg_quality=75;
 static	int	 border_margin = 0;
 static	int	 smooth = 0;
+#ifdef AMIGA
+static  char     gs_input_name[PATH_MAX];
+#endif
 
 void genbitmaps_option(char opt, char *optarg)
 {
@@ -120,6 +124,38 @@ void genbitmaps_option(char opt, char *optarg)
 //HANDLE readEnd;
 //PHANDLE writeEnd;
 
+#ifdef AMIGA
+static void find_amiga_tool(const char *tool, char *out_path) {
+    char tmp[PATH_MAX];
+    /* 1. Check APPDIR: (common for installed tools) */
+    sprintf(tmp, "APPDIR:%s", tool);
+    if (access(tmp, F_OK) == 0) {
+        strcpy(out_path, tool);
+        return;
+    }
+    /* 2. Check in C: */
+    sprintf(tmp, "C:%s", tool);
+    if (access(tmp, F_OK) == 0) {
+        strcpy(out_path, tool);
+        return;
+    }
+    /* 3. Check in current directory fig2dev/ folder */
+    sprintf(tmp, "fig2dev/%s", tool);
+    if (access(tmp, F_OK) == 0) {
+        strcpy(out_path, tmp);
+        return;
+    }
+    /* 4. Check in PROGDIR: (where the executable is) */
+    sprintf(tmp, "PROGDIR:%s", tool);
+    if (access(tmp, F_OK) == 0) {
+        strcpy(out_path, tmp);
+        return;
+    }
+    /* Default to just the tool name */
+    strcpy(out_path, tool);
+}
+#endif
+
 void genbitmaps_start(F_compound *objects)
 {
     char extra_options[200];
@@ -177,11 +213,22 @@ void genbitmaps_start(F_compound *objects)
 	gsdev="ppmraw";
 	if (smooth > 1 || strcmp(lang,"ppm")) {
 	    /* make a unique name for the temporary ppm file */
+#ifdef AMIGA
+	    sprintf(tmpname,"%sf2d%d.ppm",TMPDIR,getpid());
+#else
 	    sprintf(tmpname,"%s/f2d%d.ppm",TMPDIR,getpid());
+#endif
 	    ofile = tmpname;
 	    direct = False;
 	}
     }
+#ifdef AMIGA
+    /* AMIGA: Always use indirect path (PPM -> NetPBM) for stability */
+    gsdev = "ppmraw";
+    direct = False;
+    sprintf(tmpname, "%sf2d%d.ppm", TMPDIR, getpid());
+    ofile = tmpname;
+#endif
 
     /* make up the command for gs */
 #ifdef WIN32
@@ -213,8 +260,18 @@ void genbitmaps_start(F_compound *objects)
     sprintf(gscom, "gswin32c.exe -q -dSAFER -sDEVICE=%s -r80 -g%dx%d -sOutputFile=\"%s\" %s -",
 		   gsdev, width, height, outputDirAndFile, extra_options);
 #else
+#ifdef AMIGA
+     char gs_resolved[PATH_MAX];
+     find_amiga_tool("gs", gs_resolved);
+     sprintf(gs_input_name, "%sf2d_gs_in%d.ps", TMPDIR, getpid());
+     fprintf(stderr, "fig2dev: GS input file: %s\n", gs_input_name);
+     sprintf(gscom, "%s -dSAFER -dNOPAUSE -dBATCH -sDEVICE=%s -r80 -g%dx%d -sOutputFile=%s %s %s",
+		   gs_resolved, gsdev, width, height, ofile, extra_options, gs_input_name);
+     fprintf(stderr, "fig2dev: GS command: %s\n", gscom);
+#else
      sprintf(gscom, "gs -q -dSAFER -sDEVICE=%s -r80 -g%dx%d \"-sOutputFile=%s\" %s -",
 		   gsdev, width, height, ofile, extra_options);
+#endif
 #endif
 
    /* divert output from ps driver to the pipe into ghostscript */
@@ -232,6 +289,14 @@ void genbitmaps_start(F_compound *objects)
 	BOOL success = executeCommand(gscom);
 */
 
+#ifdef AMIGA
+	if ((tfp = fopen(gs_input_name, "w")) == NULL)
+	{
+		fprintf(stderr,"fig2dev: Can't open temporary file for ghostscript\n");
+		fprintf(stderr,"error was: %s\n", strerror( errno ));
+		exit(1);
+	}
+#else
 	if ((tfp = popen(gscom,"w" )) == NULL)
 	{
 		fprintf(stderr,"fig2dev: Can't open pipe to ghostscript\n");
@@ -243,6 +308,7 @@ void genbitmaps_start(F_compound *objects)
 #endif
 		exit(1);
 	}
+#endif
 
 #ifdef WIN32
 	if(strlen(ghostScriptPath) > 0)
@@ -269,9 +335,16 @@ genbitmaps_end()
 	/* add a showpage so ghostscript will produce output */
 	fprintf(tfp, "showpage\n");
 
+#ifdef AMIGA
+	fclose(tfp);
+	tfp = 0;
+	status = system(gscom);
+	/* _unlink(gs_input_name); */
+#else
 	status = pclose(tfp);
 	/* we've already closed the original output file */
 	tfp = 0;
+#endif
 	if (status != 0) {
 	    fprintf(stderr,"Error in ghostcript command\n");
 	    fprintf(stderr,"command was: %s\n", gscom);
@@ -290,23 +363,34 @@ genbitmaps_end()
 #ifdef AMIGA
 	if (!direct) {
 	    char pipe_tmp[PATH_MAX];
+	    char lang_tool_resolved[PATH_MAX];
 	    char *lang_tool = "";
+	    char quant_tool[PATH_MAX];
+	    char pgm_tool[PATH_MAX];
+	    char pbm_tool[PATH_MAX];
+
 	    sprintf(pipe_tmp, "T:f2d_pipe%d.ppm", getpid());
 	    
-	    if (strcmp(lang, "gif")==0) lang_tool = "ppmtogif";
-	    else if (strcmp(lang, "jpeg")==0) lang_tool = "ppmtojpeg";
-	    else if (strcmp(lang, "xbm")==0) lang_tool = "pbmtoxbm";
-	    else if (strcmp(lang, "xpm")==0) lang_tool = "ppmtoxpm";
-	    else if (strcmp(lang, "sld")==0) lang_tool = "ppmtoacad";
-	    else if (strcmp(lang, "pcx")==0) lang_tool = "ppmtopcx";
-	    else if (strcmp(lang, "png")==0) lang_tool = "pnmtopng";
-	    else if (strcmp(lang, "tiff")==0) lang_tool = "pnmtotiff";
+	    if (strcmp(lang, "gif")==0) find_amiga_tool("ppmtogif", lang_tool_resolved);
+	    else if (strcmp(lang, "jpeg")==0) find_amiga_tool("pnmtojpeg", lang_tool_resolved);
+	    else if (strcmp(lang, "xbm")==0) find_amiga_tool("pbmtoxbm", lang_tool_resolved);
+	    else if (strcmp(lang, "xpm")==0) find_amiga_tool("ppmtoxpm", lang_tool_resolved);
+	    else if (strcmp(lang, "sld")==0) find_amiga_tool("ppmtoacad", lang_tool_resolved);
+	    else if (strcmp(lang, "pcx")==0) find_amiga_tool("ppmtopcx", lang_tool_resolved);
+	    else if (strcmp(lang, "png")==0) find_amiga_tool("pnmtopng", lang_tool_resolved);
+	    else if (strcmp(lang, "tiff")==0) find_amiga_tool("pamtotiff", lang_tool_resolved);
+	    else lang_tool_resolved[0] = '\0';
+
+	    lang_tool = lang_tool_resolved;
 	    
 	    /* Step 1: Quantize/Process to intermediate file */
 	    if (strcmp(lang, "gif")==0 || strcmp(lang, "xpm")==0) {
-		sprintf(com, "ppmquant 256 %s > %s", tmpname, pipe_tmp);
+		find_amiga_tool("ppmquant", quant_tool);
+		sprintf(com, "%s 256 %s > %s", quant_tool, tmpname, pipe_tmp);
 	    } else if (strcmp(lang, "xbm")==0) {
-		sprintf(com, "ppmtopgm %s | pgmtopbm > %s", tmpname, pipe_tmp);
+		find_amiga_tool("ppmtopgm", pgm_tool);
+		find_amiga_tool("pgmtopbm", pbm_tool);
+		sprintf(com, "%s %s | %s > %s", pgm_tool, tmpname, pbm_tool, pipe_tmp);
 	    } else {
                 /* For others, just copy or link if needed, but let's just use tmpname directly in step 2 if no quant needed */
                 strcpy(pipe_tmp, tmpname);
@@ -317,7 +401,7 @@ genbitmaps_end()
                 status = system(com);
                 if (status != 0) {
                     fprintf(stderr, "fig2dev: ppmquant failed\n");
-                    _unlink(pipe_tmp);
+                    /* _unlink(pipe_tmp); */
                     return -1;
                 }
             }
@@ -334,7 +418,7 @@ genbitmaps_end()
             }
             
             status = system(com);
-            if (pipe_tmp != tmpname) _unlink(pipe_tmp);
+            /* if (pipe_tmp != tmpname) _unlink(pipe_tmp); */
 	}
 #else
 	if (!direct) {
